@@ -3,12 +3,12 @@
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 Example:
-  
+
 Given nums = [2, 7, 11, 15], target = 9,
 Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 
-**Stupid Solution**: n^2:iterator*2 --> easy
+**Stupid Solution**: n^2:iterator*2 --> Brute Force
 
 define the array: 
 `
@@ -57,5 +57,37 @@ public class ListNode
   
 }
 ```
+
+## 3. Longest Substring Without Repeating Characters <Medium>
+Given a string, find the length of the longest substring without repeating characters.
+**size() & length & length()**
+**Stupid Solution**: n^3 --> Brute Force
+**Recommended Solution**: Sliding Window Optimized
+**HashSet ** 
+`Set<Character> set = new HashSet<>();`
+```
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int n = s.length();
+        if(n <= 1) return n;
+        int maxLen = 0;
+        Map<Character, Integer> map = new HashMap<>(); // current index of character
+        int i = 0, j = 0; 
+        while(j < n) {
+            char c = s.charAt(j);
+            if(map.containsKey(c)) {
+                i = Math.max(map.get(c) + 1, i);
+            }
+            maxLen = Math.max(maxLen, j - i + 1);
+            map.put(c, j);
+            j++;
+        }
+        return maxLen;
+    }
+}
+```
+## 5.Longest Palindromic Substring <Medium>
+Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
+My Solution：recursion
 
 
