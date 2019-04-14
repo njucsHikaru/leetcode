@@ -60,9 +60,13 @@ public class ListNode
 
 ## 3. Longest Substring Without Repeating Characters <Medium>
 Given a string, find the length of the longest substring without repeating characters.
+
 **size() & length & length()**
+
 **Stupid Solution**: n^3 --> Brute Force
+
 **Recommended Solution**: Sliding Window Optimized
+
 **HashSet ** 
 `Set<Character> set = new HashSet<>();`
 ```
@@ -88,6 +92,7 @@ class Solution {
 ```
 ## 5.Longest Palindromic Substring <Medium>
 Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
-My Solution：recursion
+
+**My Solution**：recursion
 
 
